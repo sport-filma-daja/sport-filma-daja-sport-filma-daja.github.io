@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport Filma Daja</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563EB',  // Blue-600
+                        secondary: '#10B981', // Emerald-500
+                        dark: '#111827',     // Gray-900
+                        light: '#F9FAFB',    // Gray-50
+                        accent: '#7C3AED'    // Violet-600
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .language-selector {
+            transition: all 0.3s ease;
+        }
+        .language-selector:hover {
+            transform: scale(1.1);
+        }
+        .package-card {
+            transition: all 0.3s ease;
+        }
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .active-language {
+            border-bottom: 3px solid #FF6B00;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-light min-h-screen font-sans">
+    <!-- Header -->
+    <header class="bg-dark text-white py-6 shadow-lg border-b border-gray-200">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-tv text-primary text-3xl mr-3"></i>
+                <h1 class="text-2xl font-bold">Sport Filma Daja</h1>
+            </div>
+            <div class="flex space-x-4">
+                <button onclick="changeLanguage('sq')" class="language-selector active-language text-white px-3 py-1 rounded">SQ</button>
+                <button onclick="changeLanguage('en')" class="language-selector text-white px-3 py-1 rounded">EN</button>
+                <button onclick="changeLanguage('it')" class="language-selector text-white px-3 py-1 rounded">IT</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-16 bg-gradient-to-r from-primary to-accent text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 id="hero-title" class="text-4xl font-bold mb-4">Shikoni të gjitha kanalet sportive dhe filmat</h2>
+            <p id="hero-subtitle" class="text-xl mb-8">IPTV me cilësinë më të lartë në treg me çmime të volitshme</p>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 id="packages-title" class="text-3xl font-bold text-center text-dark mb-12">Zgjidhni paketën tuaj</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Package 1 -->
+                <div class="package-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
+                    <div class="bg-gradient-to-r from-primary to-accent py-4 text-center">
+                        <h3 id="package1-title" class="text-xl font-bold text-white">Paketa Mujore</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <span id="package1-price" class="text-4xl font-bold text-dark">1500 ALL</span>
+                            <span id="package1-period" class="block text-gray-600">/ muaj</span>
+                        </div>
+                        <ul class="mb-8 space-y-2 text-gray-700">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                <span id="package1-feature1">+5000 Kanale</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                <span id="package1-feature2">Kanale Sportive HD</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                <span id="package1-feature3">Filma & Seriale</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                <span id="package1-feature4">(Soon) Video On Demand me mijëra filmash</span>
+                            </li>
+                        </ul>
+<a href="https://t.me/sportfilmadaja" target="_blank" class="w-full block text-center bg-secondary hover:bg-emerald-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 shadow-md hover:shadow-lg">
+    <span id="package1-button">Bli Tani</span>
+</a>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="package-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
+                    <div class="bg-primary py-4 text-center">
+                        <h3 id="package2-title" class="text-xl font-bold text-white">Paketa 3 Muaj</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <span id="package2-price" class="text-4xl font-bold text-dark">3000 ALL</span>
+                            <span id="package2-period" class="block text-gray-600">/ 3 muaj</span>
+                        </div>
+                        <ul class="mb-8 space-y-2 text-gray-700">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                <span id="package2-feature1">+5000 Kanale</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                <span id="package2-feature2">Kanale Sportive HD</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                <span id="package2-feature3">Filma & Seriale</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                <span id="package2-feature4">(Soon) Video On Demand me mijëra filmash</span>
+                            </li>
+                        </ul>
+                        <a href="https://t.me/sportfilmadaja" target="_blank" class="w-full block text-center bg-secondary hover:bg-emerald-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 shadow-md hover:shadow-lg">  
+                        <span id="package1-button">Bli Tani</span>
+                      </a>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="package-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
+                    <div class="bg-primary py-4 text-center">
+                        <h3 id="package3-title" class="text-xl font-bold text-white">Paketa 6 Muaj</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <span id="package3-price" class="text-4xl font-bold text-dark">5500 ALL</span>
+                            <span id="package3-period" class="block text-gray-600">/ 6 muaj</span>
+                        </div>
+                        <ul class="mb-8 space-y-2 text-gray-700">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                <span id="package3-feature1">+5000 Kanale</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                <span id="package3-feature2">Kanale Sportive HD</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                <span id="package3-feature3">Filma & Seriale</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                <span id="package3-feature4">(Soon) Video On Demand me mijëra filmash</span>
+                            </li>
+                        </ul>
+<a href="https://t.me/sportfilmadaja" target="_blank" class="w-full block text-center bg-secondary hover:bg-emerald-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 shadow-md hover:shadow-lg">
+    <span id="package1-button">Bli Tani</span>
+</a>
+                    </div>
+                </div>
+
+                <!-- Package 4 -->
+                <div class="package-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
+                    <div class="bg-primary py-4 text-center">
+                        <h3 id="package4-title" class="text-xl font-bold text-white">Paketa Vjetore</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <span id="package4-price" class="text-4xl font-bold text-dark">6300 ALL</span>
+                            <span id="package4-period" class="block text-gray-600">/ vit</span>
+                        </div>
+                        <ul class="mb-8 space-y-2 text-gray-700">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                <span id="package4-feature1">+5000 Kanale</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                <span id="package4-feature2">Kanale Sportive HD</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                <span id="package4-feature3">Filma & Seriale</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                <span id="package4-feature4">(Soon) Video On Demand me mijëra filmash</span>
+                            </li>
+                        </ul>
+<a href="https://t.me/sportfilmadaja" target="_blank" class="w-full block text-center bg-secondary hover:bg-emerald-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 shadow-md hover:shadow-lg">
+    <span id="package1-button">Bli Tani</span>
+</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 id="payment-title" class="text-3xl font-bold text-center text-dark mb-12">Metodat e Pagesës</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 text-center w-full md:w-1/3 border border-gray-100">
+                    <i class="fab fa-paypal text-5xl text-blue-500 mb-4"></i>
+                    <h3 id="paypal-title" class="text-xl font-bold mb-2">PayPal</h3>
+                    <p id="paypal-desc" class="text-gray-600">Pagesë e sigurtë me PayPal</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center w-full md:w-1/3">
+                    <i class="fas fa-coins text-5xl text-yellow-500 mb-4"></i>
+                    <h3 id="crypto-title" class="text-xl font-bold mb-2">USDT (Crypto)</h3>
+                    <p id="crypto-desc" class="text-gray-600">Pagesë me kriptomonedha USDT</p>
+                </div>
+            </div>
+            <p id="payment-note" class="text-center mt-8 text-gray-600 font-medium">* Pagesa mund të bëhet vetëm me PayPal ose USDT</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-16 bg-dark text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 id="contact-title" class="text-3xl font-bold mb-6">Na kontaktoni në Telegram</h2>
+            <a href="https://t.me/sportfilmadaja" target="_blank" class="inline-flex items-center bg-accent hover:bg-violet-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-md hover:shadow-lg">
+                <i class="fab fa-telegram mr-2 text-xl"></i>
+                <span id="contact-button">Bisedo me ne</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p id="footer-text">&copy; 2023 Sport Filma Daja. Të gjitha të drejtat e rezervuara.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Language content
+        const languages = {
+            sq: {
+                heroTitle: "Shikoni të gjitha kanalet sportive dhe filmat",
+                heroSubtitle: "IPTV me cilësinë më të lartë në treg me çmime të volitshme",
+                packagesTitle: "Zgjidhni paketën tuaj",
+                
+                package1: {
+                    title: "Paketa Mujore",
+                    price: "1500 ALL",
+                    period: "/ muaj",
+                    features: [
+                        "+5000 Kanale",
+                        "Kanale Sportive HD",
+                        "Filma & Seriale",
+                        "(Soon) Video On Demand me mijëra filmash"
+                    ],
+                    button: "Bli Tani"
+                },
+                package2: {
+                    title: "Paketa 3 Muaj",
+                    price: "3000 ALL",
+                    period: "/ 3 muaj",
+                    features: [
+                        "+5000 Kanale",
+                        "Kanale Sportive HD",
+                        "Filma & Seriale",
+                        "(Soon) Video On Demand me mijëra filmash"
+                    ],
+                    button: "Bli Tani"
+                },
+                package3: {
+                    title: "Paketa 6 Muaj",
+                    price: "5500 ALL",
+                    period: "/ 6 muaj",
+                    features: [
+                        "+5000 Kanale",
+                        "Kanale Sportive HD",
+                        "Filma & Seriale",
+                        "(Soon) Video On Demand me mijëra filmash"
+                    ],
+                    button: "Bli Tani"
+                },
+                package4: {
+                    title: "Paketa Vjetore",
+                    price: "6300 ALL",
+                    period: "/ vit",
+                    features: [
+                        "+5000 Kanale",
+                        "Kanale Sportive HD",
+                        "Filma & Seriale",
+                        "(Soon) Video On Demand me mijëra filmash"
+                    ],
+                    button: "Bli Tani"
+                },
+                
+                paymentTitle: "Metodat e Pagesës",
+                paypalTitle: "PayPal",
+                paypalDesc: "Pagesë e sigurtë me PayPal",
+                cryptoTitle: "USDT (Crypto)",
+                cryptoDesc: "Pagesë me kriptomonedha USDT",
+                paymentNote: "* Pagesa mund të bëhet vetëm me PayPal ose USDT",
+                
+                contactTitle: "Na kontaktoni në Telegram",
+                contactButton: "Bisedo me ne",
+                
+                footerText: "© 2023 Sport Filma Daja. Të gjitha të drejtat e rezervuara."
+            },
+            en: {
+                heroTitle: "Watch all sports channels and movies",
+                heroSubtitle: "Highest quality IPTV in the market at affordable prices",
+                packagesTitle: "Choose your package",
+                
+                package1: {
+                    title: "Monthly Package",
+                    price: "15 EUR",
+                    period: "/ month",
+                    features: [
+                        "+5000 Channels",
+                        "HD Sports Channels",
+                        "Movies & TV Series",
+                        "(Soon) Video On Demand with thousands of movies"
+                    ],
+                    button: "Buy Now"
+                },
+                package2: {
+                    title: "3 Months Package",
+                    price: "30 EUR",
+                    period: "/ 3 months",
+                    features: [
+                        "+5000 Channels",
+                        "HD Sports Channels",
+                        "Movies & TV Series",
+                        "(Soon) Video On Demand with thousands of movies"
+                    ],
+                    button: "Buy Now"
+                },
+                package3: {
+                    title: "6 Months Package",
+                    price: "55 EUR",
+                    period: "/ 6 months",
+                    features: [
+                        "+5000 Channels",
+                        "HD Sports Channels",
+                        "Movies & TV Series",
+                        "(Soon) Video On Demand with thousands of movies"
+                    ],
+                    button: "Buy Now"
+                },
+                package4: {
+                    title: "Yearly Package",
+                    price: "63 EUR",
+                    period: "/ year",
+                    features: [
+                        "+5000 Channels",
+                        "HD Sports Channels",
+                        "Movies & TV Series",
+                        "(Soon) Video On Demand with thousands of movies"
+                    ],
+                    button: "Buy Now"
+                },
+                
+                paymentTitle: "Payment Methods",
+                paypalTitle: "PayPal",
+                paypalDesc: "Secure payment with PayPal",
+                cryptoTitle: "USDT (Crypto)",
+                cryptoDesc: "Payment with USDT cryptocurrency",
+                paymentNote: "* Payment can be made only with PayPal or USDT",
+                
+                contactTitle: "Contact us on Telegram",
+                contactButton: "Chat with us",
+                
+                footerText: "© 2023 Sport Filma Daja. All rights reserved."
+            },
+            it: {
+                heroTitle: "Guarda tutti i canali sportivi e i film",
+                heroSubtitle: "IPTV di altissima qualità sul mercato a prezzi accessibili",
+                packagesTitle: "Scegli il tuo pacchetto",
+                
+                package1: {
+                    title: "Pacchetto Mensile",
+                    price: "15 EUR",
+                    period: "/ mese",
+                    features: [
+                        "+5000 Canali",
+                        "Canali Sportivi HD",
+                        "Film & Serie TV",
+                        "(Soon) Video On Demand con migliaia di film"
+                    ],
+                    button: "Acquista Ora"
+                },
+                package2: {
+                    title: "Pacchetto 3 Mesi",
+                    price: "30 EUR",
+                    period: "/ 3 mesi",
+                    features: [
+                        "+5000 Canali",
+                        "Canali Sportivi HD",
+                        "Film & Serie TV",
+                        "(Soon) Video On Demand con migliaia di film"
+                    ],
+                    button: "Acquista Ora"
+                },
+                package3: {
+                    title: "Pacchetto 6 Mesi",
+                    price: "55 EUR",
+                    period: "/ 6 mesi",
+                    features: [
+                        "+5000 Canali",
+                        "Canali Sportivi HD",
+                        "Film & Serie TV",
+                        "(Soon) Video On Demand con migliaia di film"
+                    ],
+                    button: "Acquista Ora"
+                },
+                package4: {
+                    title: "Pacchetto Annuale",
+                    price: "63 EUR",
+                    period: "/ anno",
+                    features: [
+                        "+5000 Canali",
+                        "Canali Sportivi HD",
+                        "Film & Serie TV",
+                        "(Soon) Video On Demand con migliaia di film"
+                    ],
+                    button: "Acquista Ora"
+                },
+                
+                paymentTitle: "Metodi di Pagamento",
+                paypalTitle: "PayPal",
+                paypalDesc: "Pagamento sicuro con PayPal",
+                cryptoTitle: "USDT (Crypto)",
+                cryptoDesc: "Pagamento con criptovaluta USDT",
+                paymentNote: "* Il pagamento può essere effettuato solo con PayPal o USDT",
+                
+                contactTitle: "Contattaci su Telegram",
+                contactButton: "Chatta con noi",
+                
+                footerText: "© 2023 Sport Filma Daja. Tutti i diritti riservati."
+            }
+        };
+
+        // Current language
+        let currentLanguage = 'sq';
+
+        // Change language function
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            updateContent();
+            
+            // Update active language button
+            document.querySelectorAll('.language-selector').forEach(btn => {
+                btn.classList.remove('active-language');
+            });
+            event.target.classList.add('active-language');
+        }
+
+        // Update all content based on current language
+        function updateContent() {
+            const langData = languages[currentLanguage];
+            
+            // Hero section
+            document.getElementById('hero-title').textContent = langData.heroTitle;
+            document.getElementById('hero-subtitle').textContent = langData.heroSubtitle;
+            
+            // Packages section
+            document.getElementById('packages-title').textContent = langData.packagesTitle;
+            
+            // Package 1
+            document.getElementById('package1-title').textContent = langData.package1.title;
+            document.getElementById('package1-price').textContent = langData.package1.price;
+            document.getElementById('package1-period').textContent = langData.package1.period;
+            document.getElementById('package1-feature1').textContent = langData.package1.features[0];
+            document.getElementById('package1-feature2').textContent = langData.package1.features[1];
+            document.getElementById('package1-feature3').textContent = langData.package1.features[2];
+            document.getElementById('package1-feature4').textContent = langData.package1.features[3];
+            document.getElementById('package1-button').textContent = langData.package1.button;
+            
+            // Package 2
+            document.getElementById('package2-title').textContent = langData.package2.title;
+            document.getElementById('package2-price').textContent = langData.package2.price;
+            document.getElementById('package2-period').textContent = langData.package2.period;
+            document.getElementById('package2-feature1').textContent = langData.package2.features[0];
+            document.getElementById('package2-feature2').textContent = langData.package2.features[1];
+            document.getElementById('package2-feature3').textContent = langData.package2.features[2];
+            document.getElementById('package2-feature4').textContent = langData.package2.features[3];
+            document.getElementById('package2-button').textContent = langData.package2.button;
+            
+            // Package 3
+            document.getElementById('package3-title').textContent = langData.package3.title;
+            document.getElementById('package3-price').textContent = langData.package3.price;
+            document.getElementById('package3-period').textContent = langData.package3.period;
+            document.getElementById('package3-feature1').textContent = langData.package3.features[0];
+            document.getElementById('package3-feature2').textContent = langData.package3.features[1];
+            document.getElementById('package3-feature3').textContent = langData.package3.features[2];
+            document.getElementById('package3-feature4').textContent = langData.package3.features[3];
+            document.getElementById('package3-button').textContent = langData.package3.button;
+            
+            // Package 4
+            document.getElementById('package4-title').textContent = langData.package4.title;
+            document.getElementById('package4-price').textContent = langData.package4.price;
+            document.getElementById('package4-period').textContent = langData.package4.period;
+            document.getElementById('package4-feature1').textContent = langData.package4.features[0];
+            document.getElementById('package4-feature2').textContent = langData.package4.features[1];
+            document.getElementById('package4-feature3').textContent = langData.package4.features[2];
+            document.getElementById('package4-feature4').textContent = langData.package4.features[3];
+            document.getElementById('package4-button').textContent = langData.package4.button;
+            
+            // Payment section
+            document.getElementById('payment-title').textContent = langData.paymentTitle;
+            document.getElementById('paypal-title').textContent = langData.paypalTitle;
+            document.getElementById('paypal-desc').textContent = langData.paypalDesc;
+            document.getElementById('crypto-title').textContent = langData.cryptoTitle;
+            document.getElementById('crypto-desc').textContent = langData.cryptoDesc;
+            document.getElementById('payment-note').textContent = langData.paymentNote;
+            
+            // Contact section
+            document.getElementById('contact-title').textContent = langData.contactTitle;
+            document.getElementById('contact-button').textContent = langData.contactButton;
+            
+            // Footer
+            document.getElementById('footer-text').textContent = langData.footerText;
+        }
+
+        // Checkout function
+        function checkout(packageType) {
+            let price, currency;
+            
+            if (currentLanguage === 'sq') {
+                currency = 'ALL';
+                switch(packageType) {
+                    case 'monthly': price = '1500'; break;
+                    case '3months': price = '3000'; break;
+                    case '6months': price = '5500'; break;
+                    case 'yearly': price = '6300'; break;
+                }
+            } else {
+                currency = 'EUR';
+                switch(packageType) {
+                    case 'monthly': price = '15'; break;
+                    case '3months': price = '30'; break;
+                    case '6months': price = '55'; break;
+                    case 'yearly': price = '63'; break;
+                }
+            }
+            
+            // In a real scenario, this would redirect to a payment gateway
+            alert(`Redirecting to checkout for ${packageType} package (${price} ${currency})`);
+        }
+
+        // Initialize with Albanian language
+        updateContent();
+    </script>
+</body>
+</html>
